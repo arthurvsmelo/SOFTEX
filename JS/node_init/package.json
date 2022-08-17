@@ -1,0 +1,19 @@
+{
+  "name": "calc_node",
+  "version": "1.0.0",
+  "description": "Cod. da calculadora no node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "calculadora",
+    "node",
+    "teste"
+  ],
+  "author": "Arthur Melo",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
