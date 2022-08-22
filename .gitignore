@@ -1,0 +1,4 @@
+#Ignore folder .vscode
+.vscode/
+
+*.json
