@@ -5,54 +5,54 @@ const cors = require('cors');
 const app = express();
 const port = 8080;
 
-var registros = [];
+var livros = [];
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extend: false}));
 app.use(bodyParser.json());
 
-app.get('/registros/todos', (req, res)=>{
-    res.status(200).send(registros);
+app.get('/livros/todos', (req, res)=>{
+    res.status(200).send(livros);
 });
 
-app.get('/registros/:id', (req, res)=>{
+app.get('/livros/:id', (req, res)=>{
     let id = req.params.id;
     if (id > 0 && id <= artigos.length){
-        res.status(200).send(registros[id - 1]);
+        res.status(200).send(livros[id - 1]);
     }
     else {
-        res.status(404).send('Registro não encontrado!');
+        res.status(404).send('Livro não encontrado!');
     }
 });
 
-app.post('/registros/add', (req, res)=>{
-    let registro = req.body;
-    let idx = registro.length + 1;
-    registros.push(registro);
-    registro.idx = idx;
-    res.status(201).send('Registro adicionado com sucesso.');
+app.post('/livros/add', (req, res)=>{
+    let Livro = req.body;
+    let idx = Livro.length + 1;
+    livros.push(Livro);
+    Livro.idx = idx;
+    res.status(201).send('Livro adicionado com sucesso.');
 });
 
-app.put('/registros/editar/:id', (req, res)=>{
+app.put('/livros/editar/:id', (req, res)=>{
     let id = req.params.id;
     if (id > 0 && id <= artigos.length){
-        let registro = req.body;
-        registros[id - 1] = registro;
-        res.status(200).send(registro);
+        let Livro = req.body;
+        livros[id - 1] = Livro;
+        res.status(200).send(Livro);
     }
     else {
-        res.status(404).send('Registro não encontrado!');
+        res.status(404).send('Livro não encontrado!');
     }
 });
 
-app.delete('/registros/remover/:id', (req, res)=>{
+app.delete('/livros/remover/:id', (req, res)=>{
     let id = req.params.id;
     if (id > 0 && id <= artigos.length){
-        registros.splice(id - 1, 1);
-        res.status(200).send('Registro removido.');
+        livros.splice(id - 1, 1);
+        res.status(200).send('Livro removido.');
     }
     else {
-        res.status(404).send('Registro não encontrado!');
+        res.status(404).send('Livro não encontrado!');
     }
 });
 
